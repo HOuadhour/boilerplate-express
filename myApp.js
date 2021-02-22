@@ -34,4 +34,15 @@ app.get("/name", (req, res) => {
   res.json({ name: `${first} ${last}` });
 });
 
+app
+  .route("/name")
+  .post((req, res) => {
+    const { first, last } = req.body;
+    res.json({ name: `${first} ${last}` });
+  })
+  .get((req, res) => {
+    const { first, last } = req.query;
+    res.json({ name: `${first} ${last}` });
+  });
+
 module.exports = app;
